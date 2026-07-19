@@ -279,6 +279,90 @@
     margin-bottom:56px;
   }
   @media(max-width:720px){.grid3{grid-template-columns:1fr;}}
+
+  /* ---------- RANKS ---------- */
+  .rank-list{
+    list-style:none; margin:0 0 56px; padding:0;
+    border:1px solid var(--line);
+    background:#f2ede0;
+  }
+  .rank-item{
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    align-items:center;
+    gap:18px;
+    padding:16px 24px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .rank-item:last-child{border-bottom:none;}
+  .rank-item:nth-child(odd){background:rgba(169,134,47,.05);}
+  .rank-item.is-me{
+    background:rgba(122,31,31,.08) !important;
+    border-left:4px solid var(--redline);
+  }
+  .rank-item.is-suspended{
+    opacity:.6;
+    font-style:italic;
+  }
+  .rank-item .rk-num{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:26px; color:var(--gold);
+    text-align:center;
+    border-right:1px solid var(--line);
+  }
+  .rank-item .rk-name{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:20px; letter-spacing:.03em;
+    color:var(--ink);
+  }
+  .rank-item .rk-name small{
+    display:block; font-family:'Courier Prime',monospace;
+    font-size:11px; letter-spacing:.08em; color:#6b6446;
+    text-transform:none; margin-top:3px; font-weight:400;
+  }
+  .rank-item .rk-tag{
+    font-family:'Courier Prime', monospace;
+    font-size:10px; letter-spacing:.15em;
+    color:var(--navy-2);
+    background:var(--gold-bright);
+    padding:4px 10px;
+    white-space:nowrap;
+  }
+  @media(max-width:560px){
+    .rank-item{grid-template-columns:44px 1fr; }
+    .rank-item .rk-tag{grid-column:1 / -1; justify-self:start; margin-top:4px;}
+  }
+
+  /* ---------- DEPARTMENTS ---------- */
+  .dept-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:56px;
+  }
+  @media(max-width:720px){.dept-grid{grid-template-columns:1fr;}}
+  .dept-box{
+    background:var(--navy-2);
+    color:#e6e6dc;
+    border:1px solid var(--gold);
+    padding:24px 26px;
+    position:relative;
+  }
+  .dept-box .dpt-eyebrow{
+    font-family:'Courier Prime', monospace;
+    font-size:10px; letter-spacing:.2em;
+    color:var(--gold-bright); text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .dept-box h4{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:24px; letter-spacing:.03em;
+    margin:0 0 10px; color:#f2efe4;
+  }
+  .dept-box p{
+    font-size:14px; line-height:1.7; color:#c7cadb; margin:0;
+  }
   .skill-box{
     background:#f2ede0;
     border:1px solid var(--line);
@@ -376,7 +460,7 @@
     </h1>
     <p class="hero-sub">
       Diese Akte dokumentiert Werdegang, Verdienste und Führungsverständnis des Bewerbers
-      Beetle Juice, Dienstnummer 40411, im Rahmen der Bewerbung um den Leaderposten
+      Beetle Juice (Jasper), Dienstnummer 01, im Rahmen der Bewerbung um den Leaderposten
       des Federal Investigation Bureau.
     </p>
     <span class="file-tag">AKTE NR. 40411-FIB-LEAD</span>
@@ -389,12 +473,24 @@
       <div class="idcard">
         <div class="idcard-row">
           <div class="idcard-field">
-            <span class="lbl">Name</span>
+            <span class="lbl">Ingame-Name</span>
             <span class="val">Beetle Juice</span>
           </div>
           <div class="idcard-field">
+            <span class="lbl">Realname / Alter</span>
+            <span class="val">Jasper · 19 Jahre</span>
+          </div>
+          <div class="idcard-field">
             <span class="lbl">Dienstnummer</span>
+            <span class="val">01</span>
+          </div>
+          <div class="idcard-field">
+            <span class="lbl">Spieler-ID</span>
             <span class="val">40411</span>
+          </div>
+          <div class="idcard-field">
+            <span class="lbl">Serverzugehörigkeit</span>
+            <span class="val">3 Jahre</span>
           </div>
           <div class="idcard-field">
             <span class="lbl">Beworben für</span>
@@ -402,10 +498,10 @@
           </div>
           <div class="idcard-field">
             <span class="lbl">Status</span>
-            <span class="val" style="color:#7fd48a;">Aktiv im Dienst</span>
+            <span class="val" style="color:#e0b84a;">Bald im Dienst</span>
           </div>
         </div>
-        <div class="badge-num">40411<span>DIENSTAUSWEIS</span></div>
+        <div class="badge-num">01<span>DIENSTNUMMER</span></div>
       </div>
 
       <!-- SECTION 01 — MOTIVATION -->
@@ -416,11 +512,11 @@
         </div>
         <hr class="rule">
         <p class="lede">
-          Mit dieser Akte bewerbe ich mich, Beetle Juice, Dienstnummer 40411, offiziell
-          um den Leaderposten des Federal Investigation Bureau. Meine bisherige Laufbahn
-          quer durch mehrere Behörden hat mir ein Verständnis für Struktur, Ausbildung
-          und Führungsverantwortung vermittelt, das ich nun in vollem Umfang in den
-          Dienst des Bureaus stellen möchte.
+          Mit dieser Akte bewerbe ich mich, Beetle Juice, Dienstnummer 01, offiziell
+          um den Leaderposten des Federal Investigation Bureau. Seit nunmehr drei Jahren
+          bin ich aktiver Teil dieses Servers und habe in dieser Zeit quer durch mehrere
+          Behörden ein tiefes Verständnis für Struktur, Ausbildung und Führungsverantwortung
+          entwickelt, das ich nun in vollem Umfang in den Dienst des Bureaus stellen möchte.
         </p>
         <p class="body-text">
           Über mehrere Positionen als Curator und Abteilungsleiter hinweg habe ich gelernt,
@@ -506,6 +602,296 @@
         </div>
       </section>
 
+      <!-- SECTION 04 — KONZEPT -->
+      <section id="konzept">
+        <div class="section-head">
+          <span class="section-num">04</span>
+          <span class="section-title">Konzept als Leiter des F.I.B.</span>
+        </div>
+        <hr class="rule">
+        <p class="body-text">
+          Mein Konzept als Leiter des F.I.B. basiert auf drei Jahren Servererfahrung
+          und dem Wissen aus SANG, PD und SD. Es gliedert sich in vier Schwerpunkte,
+          die ich in den ersten Wochen meiner Amtszeit umsetzen möchte.
+        </p>
+
+        <div class="record" style="margin-top:34px;">
+          <div class="record-item">
+            <span class="stamp-ok">PHASE 1</span>
+            <div class="record-org">Struktur &amp; Bestandsaufnahme</div>
+            <div class="record-role">Analyse der aktuellen Lage</div>
+            <div class="record-desc">
+              In den ersten Tagen führe ich Gespräche mit allen aktiven Agenten und
+              der bisherigen Führungsriege, um Stärken, Schwächen und offene
+              Baustellen der Abteilung zu erfassen. Ziel ist eine ehrliche
+              Bestandsaufnahme, bevor Veränderungen angestoßen werden.
+            </div>
+          </div>
+
+          <div class="record-item">
+            <span class="stamp-ok">PHASE 2</span>
+            <div class="record-org">Ausbildung &amp; Nachwuchs</div>
+            <div class="record-role">Aufbau eines festen Trainingsprogramms</div>
+            <div class="record-desc">
+              Basierend auf meiner Erfahrung als Curator in SANG und PD führe ich ein
+              strukturiertes Ausbildungsprogramm für neue Agenten ein: klar definierte
+              Trainingsphasen, feste Ansprechpartner und regelmäßige Übungen, damit
+              jeder Agent auf einem einheitlichen Niveau in den Dienst startet.
+            </div>
+          </div>
+
+          <div class="record-item">
+            <span class="stamp-ok">PHASE 3</span>
+            <div class="record-org">Ermittlungsarbeit &amp; Interne Ordnung</div>
+            <div class="record-role">Professionalisierung der Fallführung</div>
+            <div class="record-desc">
+              Nach dem Vorbild der Detective Unit im SD etabliere ich klare Abläufe für
+              Ermittlungen: dokumentierte Fallakten, feste Zuständigkeiten und
+              regelmäßige interne Besprechungen, um Ermittlungsqualität und
+              Nachvollziehbarkeit spürbar zu erhöhen.
+            </div>
+          </div>
+
+          <div class="record-item">
+            <span class="stamp-ok">PHASE 4</span>
+            <div class="record-org">Zusammenarbeit mit anderen Behörden</div>
+            <div class="record-role">Feste Kooperationswege schaffen</div>
+            <div class="record-desc">
+              Durch meinen Werdegang in SANG, PD und SD kenne ich die Arbeitsweise
+              der anderen Behörden aus erster Hand. Diesen Vorteil nutze ich, um feste
+              Kommunikationswege und gemeinsame Einsatzabläufe zwischen F.I.B., PD, SD
+              und SANG zu etablieren und Reibungsverluste zu reduzieren.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 05 — RÄNGE & ABTEILUNGEN -->
+      <section id="raenge">
+        <div class="section-head">
+          <span class="section-num">05</span>
+          <span class="section-title">Ränge &amp; Abteilungen</span>
+        </div>
+        <hr class="rule">
+        <p class="body-text">
+          Als Grundlage für eine transparente Struktur schlage ich folgende Rang- und
+          Abteilungsordnung für das F.I.B. vor. Sie orientiert sich an bewährten
+          Hierarchien aus SANG, PD und SD, angepasst an die Anforderungen einer
+          Ermittlungsbehörde.
+        </p>
+
+        <p class="body-text" style="margin-top:30px; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#6b6446;">
+          Rangstruktur
+        </p>
+        <ul class="rank-list">
+          <li class="rank-item is-suspended">
+            <span class="rk-num">01</span>
+            <span class="rk-name">Suspended
+              <small>Dienst vorübergehend ausgesetzt</small>
+            </span>
+            <span class="rk-tag">Sperre</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">02</span>
+            <span class="rk-name">Applicant
+              <small>Bewerbungsphase, noch nicht aufgenommen</small>
+            </span>
+            <span class="rk-tag">Nachwuchs</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">03</span>
+            <span class="rk-name">Cadet
+              <small>Erste Ausbildungsstufe</small>
+            </span>
+            <span class="rk-tag">Nachwuchs</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">04</span>
+            <span class="rk-name">Probationary Agent I
+              <small>Probezeit, Grundausbildung</small>
+            </span>
+            <span class="rk-tag">Nachwuchs</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">05</span>
+            <span class="rk-name">Probationary Agent II
+              <small>Probezeit, erweiterte Ausbildung</small>
+            </span>
+            <span class="rk-tag">Nachwuchs</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">06</span>
+            <span class="rk-name">Junior Agent
+              <small>Erste reguläre Diensteinstufung</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">07</span>
+            <span class="rk-name">Agent I
+              <small>Regulärer Ermittlungsdienst</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">08</span>
+            <span class="rk-name">Agent II
+              <small>Regulärer Ermittlungsdienst, mehr Eigenverantwortung</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">09</span>
+            <span class="rk-name">Field Agent
+              <small>Eigenständige Fallübernahme im Außendienst</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">10</span>
+            <span class="rk-name">Senior Agent
+              <small>Erfahrener Ermittler mit Sonderaufgaben</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">11</span>
+            <span class="rk-name">Field Training Agent
+              <small>Betreuung und Anleitung neuer Agenten</small>
+            </span>
+            <span class="rk-tag">Ausbildung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">12</span>
+            <span class="rk-name">Investigator
+              <small>Vertiefte Ermittlungsarbeit, komplexe Fälle</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">13</span>
+            <span class="rk-name">Senior Investigator
+              <small>Leitung einzelner Ermittlungen</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">14</span>
+            <span class="rk-name">Detective
+              <small>Eigene Fallakten, enge Behördenzusammenarbeit</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">15</span>
+            <span class="rk-name">Senior Detective
+              <small>Fallführung &amp; Mentoring jüngerer Detectives</small>
+            </span>
+            <span class="rk-tag">Dienstgrad</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">16</span>
+            <span class="rk-name">TR Specialist
+              <small>Bewerbungsverfahren &amp; Personalakten</small>
+            </span>
+            <span class="rk-tag">HR</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">17</span>
+            <span class="rk-name">TR Manager
+              <small>Leitung Personalabteilung, interne Ordnung</small>
+            </span>
+            <span class="rk-tag">HR</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">18</span>
+            <span class="rk-name">Corporal
+              <small>Unterste Führungsebene, Teamkoordination</small>
+            </span>
+            <span class="rk-tag">Führung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">19</span>
+            <span class="rk-name">Sergeant
+              <small>Führung eines kleinen Teams</small>
+            </span>
+            <span class="rk-tag">Führung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">20</span>
+            <span class="rk-name">Supervisory Special Agent
+              <small>Teamleitung &amp; Ausbildungsaufsicht</small>
+            </span>
+            <span class="rk-tag">Führung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">21</span>
+            <span class="rk-name">Unit Commander
+              <small>Leitung einer Abteilung (z. B. CID, TRU)</small>
+            </span>
+            <span class="rk-tag">Führung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">22</span>
+            <span class="rk-name">Assistant Director
+              <small>Leitung mehrerer Abteilungen</small>
+            </span>
+            <span class="rk-tag">Leitung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">23</span>
+            <span class="rk-name">Deputy Director
+              <small>Stellvertretende Gesamtleitung</small>
+            </span>
+            <span class="rk-tag">Leitung</span>
+          </li>
+          <li class="rank-item">
+            <span class="rk-num">24</span>
+            <span class="rk-name">Co-Director
+              <small>Geteilte Gesamtverantwortung</small>
+            </span>
+            <span class="rk-tag">Leitung</span>
+          </li>
+          <li class="rank-item is-me">
+            <span class="rk-num">25</span>
+            <span class="rk-name">Director
+              <small>Gesamtleitung des F.I.B. — beworbene Position</small>
+            </span>
+            <span class="rk-tag">Mein Zielrang</span>
+          </li>
+        </ul>
+
+        <p class="body-text" style="font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#6b6446;">
+          Abteilungen
+        </p>
+        <div class="dept-grid">
+          <div class="dept-box">
+            <div class="dpt-eyebrow">Division 01</div>
+            <h4>Criminal Investigation Division</h4>
+            <p>Zuständig für die klassische Ermittlungsarbeit: Fallübernahme, Vernehmungen,
+            Spurensicherung und Zusammenarbeit mit PD und SD bei größeren Fällen.</p>
+          </div>
+          <div class="dept-box">
+            <div class="dpt-eyebrow">Division 02</div>
+            <h4>Tactical Response Unit</h4>
+            <p>Taktische Einheit für Festnahmen mit erhöhtem Risiko und Einsätze in
+            Zusammenarbeit mit SWAT-nahen Kräften anderer Behörden.</p>
+          </div>
+          <div class="dept-box">
+            <div class="dpt-eyebrow">Division 03</div>
+            <h4>Training &amp; Recruitment</h4>
+            <p>Verantwortlich für Auswahlverfahren, Ausbildung neuer Agenten und
+            regelmäßige Fortbildungen.</p>
+          </div>
+          <div class="dept-box">
+            <div class="dpt-eyebrow">Division 04</div>
+            <h4>Interagency Liaison</h4>
+            <p>Schnittstelle zu SANG, PD und SD für gemeinsame Einsätze, Informationsaustausch
+            und die Koordination behördenübergreifender Ermittlungen.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- VISION -->
       <div class="vision">
         <p>
@@ -514,7 +900,7 @@
           Niveau zusammenkommen — getragen von der Erfahrung, die ich in SANG, PD
           und SD gesammelt habe.
         </p>
-        <div class="attrib">— Beetle Juice, Dienstnummer 40411</div>
+        <div class="attrib">— Beetle Juice, Dienstnummer 01</div>
       </div>
 
       <!-- SIGNATURE -->
@@ -523,7 +909,7 @@
           <div class="lbl">Unterschrift des Bewerbers</div>
           <div class="sign-name">Beetle Juice</div>
           <div style="margin-top:10px; font-family:'Courier Prime',monospace; font-size:11px; color:#6b6446;">
-            Dienstnummer 40411 · eingereicht zur Prüfung durch die F.I.B.-Führung
+            Dienstnummer 01 · eingereicht zur Prüfung durch die F.I.B.-Führung
           </div>
         </div>
         <div class="sign-col" style="display:flex; align-items:flex-end; justify-content:flex-end;">
@@ -535,7 +921,7 @@
   </main>
 
   <footer>
-    F.I.B. · AKTE 40411-FIB-LEAD ·
+    F.I.B.  · AKTE 40411-FIB-LEAD ·
   </footer>
 
 </body>
