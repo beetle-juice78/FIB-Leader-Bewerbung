@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F.I.B. — Bewerbungsakte 40411</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root{
+    --paper:#eae4d4;
+    --paper-dark:#ddd5bd;
+    --ink:#1c1a15;
+    --navy:#0b1220;
+    --navy-2:#111a2c;
+    --gold:#a9862f;
+    --gold-bright:#c9a24b;
+    --redline:#7a1f1f;
+    --stamp:#7a1f1f;
+    --line:#8a8264;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    color:var(--ink);
+    font-family:'Libre Baskerville', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    background:var(--navy-2);
+    color:#cfd6e4;
+    border-bottom:1px solid #2a3550;
+    font-family:'Courier Prime', monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    padding:8px 24px;
+    display:flex;
+    justify-content:space-between;
+    text-transform:uppercase;
+  }
+  .topbar span{opacity:.75;}
+  .topbar .blink{color:var(--gold-bright); opacity:1; animation:blink 2.4s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(169,134,47,.08), transparent 55%),
+      linear-gradient(180deg, var(--navy) 0%, #0d1626 100%);
+    color:#e8e6dc;
+    padding:70px 24px 90px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:4px double var(--gold);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 3px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    border:3px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    box-shadow:0 0 0 5px rgba(169,134,47,.15), 0 0 40px rgba(169,134,47,.15);
+  }
+  .seal::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+  }
+  .seal-star{ font-size:38px; color:var(--gold-bright); font-family:'Bebas Neue',sans-serif; }
+  .eyebrow{
+    font-family:'Courier Prime', monospace;
+    letter-spacing:.35em;
+    font-size:12px;
+    color:var(--gold-bright);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:clamp(40px,7vw,88px);
+    letter-spacing:.06em;
+    margin:0 0 6px;
+    line-height:.95;
+    color:#f2efe4;
+    text-shadow:0 2px 0 rgba(0,0,0,.4);
+  }
+  .title small{
+    display:block;
+    font-family:'Libre Baskerville', serif;
+    font-size:clamp(14px,2vw,20px);
+    letter-spacing:.08em;
+    color:#b9c2d6;
+    font-style:italic;
+    margin-top:10px;
+  }
+  .hero-sub{
+    max-width:640px; margin:26px auto 0;
+    font-size:15px; line-height:1.8; color:#c7cadb;
+  }
+  .file-tag{
+    display:inline-block; margin-top:28px;
+    font-family:'Courier Prime', monospace;
+    font-size:12px; letter-spacing:.18em;
+    color:var(--navy);
+    background:var(--gold-bright);
+    padding:6px 18px;
+    transform:rotate(-1.5deg);
+    box-shadow:2px 3px 0 rgba(0,0,0,.35);
+  }
+
+  /* ---------- PAPER SECTION ---------- */
+  .paper{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,0,0,.04), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(0,0,0,.05), transparent 60%);
+    position:relative;
+  }
+  .paper::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:10px;
+    background:repeating-linear-gradient(90deg, var(--navy) 0 14px, transparent 14px 28px);
+    opacity:.06;
+  }
+
+  .doc{
+    max-width:900px;
+    margin:0 auto;
+    padding:70px 32px;
+  }
+
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:26px;
+  }
+  .section-num{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:15px;
+    color:var(--gold);
+    letter-spacing:.1em;
+    border:1px solid var(--gold);
+    padding:3px 9px;
+  }
+  .section-title{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:clamp(26px,4vw,38px);
+    letter-spacing:.04em;
+    color:var(--ink);
+  }
+  .rule{
+    border:none; border-top:1px solid var(--line);
+    margin:0 0 40px;
+  }
+
+  /* ---------- IDENTITY CARD ---------- */
+  .idcard{
+    background:var(--navy-2);
+    color:#e6e6dc;
+    border:1px solid var(--gold);
+    padding:30px 34px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:20px;
+    align-items:center;
+    position:relative;
+    margin-bottom:56px;
+  }
+  .idcard::after{
+    content:"AKTE GEÖFFNET";
+    position:absolute; top:14px; right:18px;
+    font-family:'Courier Prime',monospace;
+    font-size:10px; letter-spacing:.2em;
+    color:var(--gold-bright); opacity:.7;
+  }
+  .idcard-row{display:flex; gap:34px; flex-wrap:wrap;}
+  .idcard-field{font-family:'Courier Prime', monospace;}
+  .idcard-field .lbl{
+    display:block; font-size:10px; letter-spacing:.18em;
+    color:var(--gold-bright); text-transform:uppercase; margin-bottom:4px;
+  }
+  .idcard-field .val{font-size:18px; color:#f2efe4; font-weight:700;}
+  .badge-num{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:46px; letter-spacing:.05em;
+    color:var(--gold-bright);
+    border:2px solid var(--gold);
+    padding:10px 22px;
+    text-align:center;
+    background:rgba(169,134,47,.08);
+  }
+  .badge-num span{display:block; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:.2em; color:#b9c2d6; margin-top:4px;}
+
+  /* ---------- MOTIVATION ---------- */
+  .lede{
+    font-size:19px; line-height:1.9; color:var(--ink);
+    margin-bottom:22px;
+  }
+  .lede::first-letter{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:4px 10px 0 0;
+    color:var(--navy);
+  }
+  .body-text{font-size:16.5px; line-height:1.9; color:#2a2618; margin-bottom:18px;}
+
+  /* ---------- SERVICE RECORD / TIMELINE ---------- */
+  .record{
+    position:relative;
+    padding-left:36px;
+    margin-bottom:56px;
+  }
+  .record::before{
+    content:"";
+    position:absolute; left:9px; top:6px; bottom:6px;
+    width:2px;
+    background:linear-gradient(var(--gold), var(--redline));
+  }
+  .record-item{
+    position:relative;
+    margin-bottom:38px;
+    background:#f2ede0;
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    padding:22px 26px;
+    box-shadow:3px 4px 0 rgba(0,0,0,.06);
+  }
+  .record-item::before{
+    content:"";
+    position:absolute; left:-32px; top:26px;
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--paper);
+    border:3px solid var(--gold);
+  }
+  .record-org{
+    font-family:'Courier Prime', monospace;
+    font-size:11px; letter-spacing:.2em;
+    color:var(--redline); text-transform:uppercase; margin-bottom:6px;
+  }
+  .record-role{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:26px; letter-spacing:.03em;
+    color:var(--ink); margin-bottom:8px;
+  }
+  .record-desc{font-size:15px; line-height:1.75; color:#3a3628;}
+  .stamp-ok{
+    position:absolute; right:20px; top:18px;
+    font-family:'Courier Prime', monospace;
+    font-size:11px; font-weight:700; letter-spacing:.15em;
+    color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:3px 10px;
+    transform:rotate(6deg);
+    opacity:.85;
+  }
+
+  /* ---------- SKILLS GRID ---------- */
+  .grid3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:56px;
+  }
+  @media(max-width:720px){.grid3{grid-template-columns:1fr;}}
+  .skill-box{
+    background:#f2ede0;
+    border:1px solid var(--line);
+    padding:22px;
+    position:relative;
+  }
+  .skill-box .k{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:20px; letter-spacing:.03em;
+    color:var(--navy-2); margin-bottom:8px;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:6px;
+  }
+  .skill-box .d{font-size:14px; line-height:1.7; color:#3a3628;}
+
+  /* ---------- QUOTE / VISION ---------- */
+  .vision{
+    background:var(--navy-2);
+    color:#e6e6dc;
+    padding:50px 40px;
+    margin:0 0 56px;
+    border-left:5px solid var(--gold);
+    position:relative;
+  }
+  .vision::before{
+    content:"„";
+    font-family:'Libre Baskerville', serif;
+    font-size:120px; color:var(--gold);
+    position:absolute; top:-10px; left:20px; opacity:.35;
+    line-height:1;
+  }
+  .vision p{
+    font-size:19px; font-style:italic; line-height:1.8;
+    max-width:720px; margin:0 auto; position:relative; z-index:1;
+  }
+  .vision .attrib{
+    text-align:right; margin-top:20px;
+    font-family:'Courier Prime', monospace;
+    font-size:12px; letter-spacing:.15em; color:var(--gold-bright);
+  }
+
+  /* ---------- SIGNATURE / FOOTER ---------- */
+  .sign-block{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    margin-top:70px; padding-top:34px;
+    border-top:2px double var(--line);
+  }
+  @media(max-width:640px){.sign-block{grid-template-columns:1fr;}}
+  .sign-col .lbl{
+    font-family:'Courier Prime', monospace; font-size:10px;
+    letter-spacing:.2em; text-transform:uppercase; color:#6b6446;
+    margin-bottom:10px;
+  }
+  .sign-name{
+    font-family:'Libre Baskerville', serif; font-style:italic;
+    font-size:26px; border-bottom:1px solid var(--ink);
+    display:inline-block; padding-bottom:4px; color:var(--ink);
+  }
+  .stamp-round{
+    width:96px; height:96px; border-radius:50%;
+    border:3px solid var(--redline);
+    color:var(--redline);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'Courier Prime',monospace;
+    font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    transform:rotate(-8deg); opacity:.8; margin-left:auto;
+  }
+
+  footer{
+    background:var(--navy);
+    color:#8b93a8;
+    text-align:center;
+    padding:26px 20px;
+    font-family:'Courier Prime', monospace;
+    font-size:11px; letter-spacing:.1em;
+    border-top:1px solid #2a3550;
+  }
+  footer a{color:var(--gold-bright); text-decoration:none;}
+
+  ::selection{background:var(--gold); color:var(--navy);}
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span>BUNDESAMT FÜR ERMITTLUNG // GTA-RP DIENSTVERZEICHNIS</span>
+    <span class="blink">● VERTRAULICH — NUR FÜR DIENSTGEBRAUCH</span>
+  </div>
+
+  <header class="hero">
+    <div class="seal"><div class="seal-star">FIB</div></div>
+    <div class="eyebrow">Personalakte · Bewerbung um Führungsposten</div>
+    <h1 class="title">FEDERAL INVESTIGATION BUREAU
+      <small>Bewerbungsschreiben zur Übernahme der Bureau-Leitung</small>
+    </h1>
+    <p class="hero-sub">
+      Diese Akte dokumentiert Werdegang, Verdienste und Führungsverständnis des Bewerbers
+      Beetle Juice, Dienstnummer 40411, im Rahmen der Bewerbung um den Leaderposten
+      des Federal Investigation Bureau.
+    </p>
+    <span class="file-tag">AKTE NR. 40411-FIB-LEAD</span>
+  </header>
+
+  <main class="paper">
+    <div class="doc">
+
+      <!-- IDENTITY -->
+      <div class="idcard">
+        <div class="idcard-row">
+          <div class="idcard-field">
+            <span class="lbl">Name</span>
+            <span class="val">Beetle Juice</span>
+          </div>
+          <div class="idcard-field">
+            <span class="lbl">Dienstnummer</span>
+            <span class="val">40411</span>
+          </div>
+          <div class="idcard-field">
+            <span class="lbl">Beworben für</span>
+            <span class="val">Leiter · F.I.B.</span>
+          </div>
+          <div class="idcard-field">
+            <span class="lbl">Status</span>
+            <span class="val" style="color:#7fd48a;">Aktiv im Dienst</span>
+          </div>
+        </div>
+        <div class="badge-num">40411<span>DIENSTAUSWEIS</span></div>
+      </div>
+
+      <!-- SECTION 01 — MOTIVATION -->
+      <section id="motivation">
+        <div class="section-head">
+          <span class="section-num">01</span>
+          <span class="section-title">Motivationsschreiben</span>
+        </div>
+        <hr class="rule">
+        <p class="lede">
+          Mit dieser Akte bewerbe ich mich, Beetle Juice, Dienstnummer 40411, offiziell
+          um den Leaderposten des Federal Investigation Bureau. Meine bisherige Laufbahn
+          quer durch mehrere Behörden hat mir ein Verständnis für Struktur, Ausbildung
+          und Führungsverantwortung vermittelt, das ich nun in vollem Umfang in den
+          Dienst des Bureaus stellen möchte.
+        </p>
+        <p class="body-text">
+          Über mehrere Positionen als Curator und Abteilungsleiter hinweg habe ich gelernt,
+          Einheiten nicht nur zu verwalten, sondern aktiv zu formen: Standards zu setzen,
+          Nachwuchskräfte auszubilden und in schwierigen Situationen Ruhe und Entscheidungsstärke
+          zu bewahren. Diese Erfahrung möchte ich nutzen, um das F.I.B. als führende
+          Ermittlungsbehörde weiter zu stärken, die Ausbildung neuer Agenten zu professionalisieren
+          und die Zusammenarbeit mit anderen Behörden auf ein neues Niveau zu heben.
+        </p>
+      </section>
+
+      <!-- SECTION 02 — SERVICE RECORD -->
+      <section id="werdegang">
+        <div class="section-head">
+          <span class="section-num">02</span>
+          <span class="section-title">Dienstlicher Werdegang</span>
+        </div>
+        <hr class="rule">
+
+        <div class="record">
+          <div class="record-item">
+            <span class="stamp-ok">BESTÄTIGT</span>
+            <div class="record-org">San Andreas National Guard — SANG</div>
+            <div class="record-role">Curator · Infanterie (INF) &amp; Air Force (AF)</div>
+            <div class="record-desc">
+              Verantwortlich für die Leitung und Ausbildung der Infanterie- sowie der
+              Luftwaffeneinheit innerhalb der SANG. Aufbau von Trainingsstandards,
+              Betreuung neuer Mitglieder und Sicherstellung der Einsatzbereitschaft
+              beider Abteilungen im täglichen Dienstbetrieb.
+            </div>
+          </div>
+
+          <div class="record-item">
+            <span class="stamp-ok">BESTÄTIGT</span>
+            <div class="record-org">Police Department — PD</div>
+            <div class="record-role">SWAT Curator</div>
+            <div class="record-desc">
+              Ausbildung und Führung der SWAT-Einheit des Police Departments. Zuständig
+              für taktische Trainings, Einsatzvorbereitung sowie die Weiterentwicklung
+              der Einheit in Zusammenarbeit mit der übrigen PD-Führung.
+            </div>
+          </div>
+
+          <div class="record-item">
+            <span class="stamp-ok">BESTÄTIGT</span>
+            <div class="record-org">Sheriff Department — SD</div>
+            <div class="record-role">Leiter der Detective Unit (DU)</div>
+            <div class="record-desc">
+              Leitung der Detective Unit des Sheriff Departments. Verantwortlich für
+              Ermittlungsarbeit, Fallführung und die fachliche sowie disziplinarische
+              Führung der Detectives innerhalb der Abteilung.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 03 — QUALIFICATIONS -->
+      <section id="qualifikation">
+        <div class="section-head">
+          <span class="section-num">03</span>
+          <span class="section-title">Qualifikationsprofil</span>
+        </div>
+        <hr class="rule">
+        <div class="grid3">
+          <div class="skill-box">
+            <div class="k">Ausbildung &amp; Curatorenwesen</div>
+            <div class="d">Mehrfache Erfahrung als Curator in unterschiedlichen Einheiten —
+            von der Infanterie über die Luftwaffe bis zur SWAT. Nachweisliche Fähigkeit,
+            Trainingsprogramme aufzubauen und Standards zu etablieren.</div>
+          </div>
+          <div class="skill-box">
+            <div class="k">Führungserfahrung</div>
+            <div class="d">Leitung der Detective Unit im Sheriff Department mit direkter
+            Personalverantwortung. Erfahrung im Führen von Teams unter Druck und in
+            der Koordination komplexer Ermittlungen.</div>
+          </div>
+          <div class="skill-box">
+            <div class="k">Behördenübergreifendes Verständnis</div>
+            <div class="d">Dienst in drei verschiedenen Institutionen (SANG, PD, SD)
+            vermittelt ein breites Verständnis für Zusammenarbeit, Kommunikation und
+            Abläufe zwischen den Behörden — essenziell für die Leitung des F.I.B.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISION -->
+      <div class="vision">
+        <p>
+          Ich möchte das F.I.B. nicht nur leiten, sondern es zu einer Institution
+          formen, in der Ausbildung, Disziplin und Ermittlungsarbeit auf höchstem
+          Niveau zusammenkommen — getragen von der Erfahrung, die ich in SANG, PD
+          und SD gesammelt habe.
+        </p>
+        <div class="attrib">— Beetle Juice, Dienstnummer 40411</div>
+      </div>
+
+      <!-- SIGNATURE -->
+      <div class="sign-block">
+        <div class="sign-col">
+          <div class="lbl">Unterschrift des Bewerbers</div>
+          <div class="sign-name">Beetle Juice</div>
+          <div style="margin-top:10px; font-family:'Courier Prime',monospace; font-size:11px; color:#6b6446;">
+            Dienstnummer 40411 · eingereicht zur Prüfung durch die F.I.B.-Führung
+          </div>
+        </div>
+        <div class="sign-col" style="display:flex; align-items:flex-end; justify-content:flex-end;">
+          <div class="stamp-round">Akte<br>geprüft<br>&amp; bereit</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    F.I.B. · AKTE 40411-FIB-LEAD ·
+  </footer>
+
+</body>
+</html>
